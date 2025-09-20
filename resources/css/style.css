@@ -1,0 +1,11 @@
+.page-title {
+      margin-top: 20px;
+      margin-left: 40px; /* mueve el título un poco a la izquierda */
+      font-weight: bold;
+    }
+    .table-container {
+      display: flex;
+      justify-content: center; /* centra horizontalmente */
+      align-items: center;     /* centra verticalmente */
+      min-height: 70vh;        /* ocupa buena parte de la pantalla */
+    }

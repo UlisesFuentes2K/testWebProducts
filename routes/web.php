@@ -5,9 +5,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 
 
-Route::get('/login', function () {
-    return view('login/index'); 
-});
 
 Route::get('/', function () {
     return view('welcome'); 
@@ -23,7 +20,7 @@ Route::prefix('product')->group(function () {
     Route::get('/index', [ProductController::class, 'index']);
     Route::get('/add', [ProductController::class, 'add']);
     Route::post('/save', [ProductController::class, 'save']);
-    Route::get('/edit', [ProductController::class, 'edit']);
-    Route::put('/update', [ProductController::class, 'update']);
-    Route::put('/delete', [ProductController::class, 'delete']);
+    Route::get('/edit/{id}', [ProductController::class, 'edit']);
+    Route::put('/update/{id}', [ProductController::class, 'update']);
+    Route::get('/delete/{id}', [ProductController::class, 'delete']);
 });

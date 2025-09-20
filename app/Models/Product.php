@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $table = 'products';
+    protected $table = 'twp_products';
     protected $primaryKey = 'idProduct';
     public $incrementing = true;
     protected $keyType = 'int';

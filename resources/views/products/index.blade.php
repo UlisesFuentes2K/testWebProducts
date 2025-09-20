@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 </head>
-<body class="bg-light" style="margin:2% 8%">
+<body class="bg-light" style="margin:2% 5%">
 
     <div style="display: flex; justify-content:space-between; margin:0px 5px">
         <h2 class="page-title">Listado de Productos</h2><br>
@@ -25,29 +25,27 @@
           <th>ID</th>
           <th>Nombre</th>
           <th>Precio</th>
-          <th>Categoría</th>
+          <th>Descripción</th>
+          <th>imagen</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
+        @foreach($productos as $producto)
         <tr>
-          <td>1</td>
-          <td>Producto A</td>
-          <td>$10</td>
-          <td>Informática</td>
-          <td>
-            <div>
-                <a href="{{ url('/product/delete') }}" class="btn btn-danger">Eliminar</a>
-                <a href="{{ url('/product/edit') }}" class="btn btn-warning">Editar</a>
-            </div>
-          </td>
+            <td>{{ $producto->idProduct }}</td>
+            <td>{{ $producto->nombre }}</td>
+            <td>${{ $producto->precio }}</td>
+            <td>{{ $producto->descripcion }}</td>
+            <td>{{ $producto->imagen }}</td>
+            <td>
+                <div>
+                    <a href="{{ url('/product/delete/'.$producto->idProduct) }}" class="btn btn-danger">Eliminar</a>
+                    <a href="{{ url('/product/edit/'.$producto->idProduct) }}" class="btn btn-warning">Editar</a>
+                </div>
+            </td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>Producto B</td>
-          <td>$20</td>
-          <td>Electrónica</td>
-        </tr>
+        @endforeach
       </tbody>
     </table>
   </div>

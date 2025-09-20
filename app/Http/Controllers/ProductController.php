@@ -8,7 +8,8 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function index(){
-        return view('products/index');
+        $productos = Product::all();
+        return view('products/index', compact('productos'));
     }
 
     public function add(){
@@ -16,14 +17,9 @@ class ProductController extends Controller
     }
 
     public function save(Request $request){
-        $request->validate([
-            'nombre'      => 'required|string|max:100',
-            'precio'      => 'required|numeric',
-            'descripcion' => 'nullable|string|max:100',
-            'imagen'      => 'nullable|image|mimes:jpg,jpeg,png,gif',
-        ]);
 
         $path = null;
+
         if ($request->hasFile('imagen')) {
             $path = $request->file('imagen')->store('productos', 'public');
         }
@@ -39,15 +35,32 @@ class ProductController extends Controller
 
     }
 
-    public function edit(){
-        return view('products/edit');
+    public function edit($id){
+        $producto = Product::findOrFail($id);
+        return view('products/edit', compact('producto'));
     }
 
-    public function update(){
-        return view('products/index');
-    }
+    public function update(Request $request, $id){
 
-    public function delete(){
+        $producto = Product::findOrFail($id);
+        $path = $producto->imagen;
+        if ($request->hasFile('imagen')) {
+            $path = $request->file('imagen')->store('productos', 'public');
+        }
+
+    $producto->update([
+        'nombre'      => $request->nombre,
+        'precio'      => $request->precio,
+        'descripcion' => $request->descripcion,
+        'imagen'      => $path,
+    ]);
+
+    return redirect('/product/index')->with('success', 'Producto actualizado correctamente');
+}
+
+    public function delete($id){
+        $producto = Product::findOrFail($id);
+        $producto->delete();
         return view('products/index');
     }
 }

@@ -13,26 +13,38 @@
   <h2>Editar Producto</h2><div style="display: flex; justify-content:space-between; margin:0px 5px">
         <a href="{{ url('/product/index') }}" class="btn btn-success">Volver</a>
     </div><br>
-  <form action="{{ url('product/update') }}" method="POST">
-    @csrf
-    <div class="mb-3 mt-3">
-      <label for="email">Nombre:</label>
-      <input type="text" class="form-control" id="email" placeholder="Ingresa el nuevo nombre" name="nombre">
-    </div>
-    <div class="mb-3">
-      <label for="pwd">Descripción:</label>
-      <input type="text" class="form-control" id="pwd" placeholder="Ingrese la nueva descripción del producto" name="descripcion">
-    </div>
-    <div class="mb-3">
-      <label for="pwd">Precio</label>
-      <input type="number" class="form-control" id="pwd" placeholder="Ingrese el nuevo precio" name="precio">
-    </div>
-    <div class="mb-3">
-        <label for="imagen" class="form-label">Imagen del producto</label>
-        <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
-    </div>
+  <form action="{{ url('product/update', $producto->idProduct) }}" method="POST" enctype="multipart/form-data">
+      @csrf
+      @method('PUT')
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" name="nombre" id="nombre" class="form-control" 
+                value="{{ $producto->nombre }}" required>
+      </div>
+
+      <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripción</label>
+          <input type="text" name="descripcion" id="descripcion" class="form-control" 
+                value="{{ $producto->descripcion }}">
+      </div>
+
+      <div class="mb-3">
+          <label for="precio" class="form-label">Precio</label>
+          <input type="number" name="precio" id="precio" class="form-control" 
+                value="{{ $producto->precio }}" required>
+      </div>
+
+      <div class="mb-3">
+          <label for="imagen" class="form-label">Imagen</label>
+          <input type="file" name="imagen" id="imagen" class="form-control">
+          @if($producto->imagen)
+              <p>Imagen actual:</p>
+              <img src="{{ asset('storage/'.$producto->imagen) }}" width="120">
+          @endif
+      </div>
+
+      <button type="submit" class="btn btn-primary">Actualizar</button>
   </form>
 </div>
 

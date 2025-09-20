@@ -11,9 +11,9 @@ Route::get('/', function () {
 });
 
 Route::prefix('login')->group(function () {
-    Route::get('/index', [ProductController::class, 'index']);
-    Route::post('/validation', [ProductController::class, 'validation']);
-    Route::post('/save', [ProductController::class, 'add']);
+    Route::get('/index', [loginController::class, 'index']);
+    Route::post('/validation', [loginController::class, 'validation']);
+    Route::post('/logout', [loginController::class, 'logout']);
 });
 
 Route::prefix('product')->group(function () {

@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-sm-4" style="width:100% ; margin:2%; display: flex; justify-content:center">
         <a href="{{ url('/product/index') }}" class="btn btn-primary" style="margin:2%;">Productos</a>
-        <a href="{{ url('/login') }}" class="btn btn-primary" style="margin:2%;">Iniciar Sesión</a>
+        <a href="{{ url('/login/index') }}" class="btn btn-primary" style="margin:2%;">Iniciar Sesión</a>
     </div>
   </div>
 </div>

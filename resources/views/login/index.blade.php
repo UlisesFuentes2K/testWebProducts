@@ -25,32 +25,20 @@
               </div>
             @endif
 
-            <form method="POST" action="}">
+            <form action="{{ url('login/validation') }}" method="POST">
               @csrf
-
               <div class="mb-3">
-                <label for="email" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="email" name="email"
-                       value="{{ old('email') }}" required autofocus>
+                  <label>Email</label>
+                  <input type="email" name="email" class="form-control" required>
               </div>
 
               <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+                  <label>Contraseña</label>
+                  <input type="password" name="password" class="form-control" required>
               </div>
 
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="remember" name="remember">
-                  <label class="form-check-label" for="remember">Recordarme</label>
-                </div>
-                <a href="#" class="small">¿Olvidaste tu contraseña?</a>
-              </div>
-
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Entrar</button>
-              </div>
-            </form>
+              <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form> 
 
           </div>
         </div>

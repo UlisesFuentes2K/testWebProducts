@@ -1,0 +1,158 @@
+.awesomplete {
+    z-index: 1051 !important;
+    position: relative;
+    border: none;
+}
+
+.awesomplete ul {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.modal-body {
+    overflow: visible;
+}
+
+#icon {
+    width: 24px;
+    height: 19px;
+    font-size: 16px;
+    margin: 4px;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.qr {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+#problemasContainer {
+    min-height: 100px;
+    min-width: 100%;
+    padding: 30px 10px;
+    gap: 15px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    height: auto;
+    border: 1px solid gray;
+
+    .awesomplete {
+        z-index: 1051 !important;
+        position: relative;
+        border: none;
+        width: 100%;
+        white-space: normal;
+    }
+
+    .inputCajon {
+        border: none;
+        outline: none;
+        resize: none;
+        width: 100%;
+        margin: 1px;
+        white-space: normal;
+        height: auto;
+    }
+
+    .span {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        font-size: smaller;
+        padding: 5px 10px;
+        width: auto;
+        max-width: 100%;
+        margin: 1px;
+        overflow-wrap: break-word;
+        white-space: normal;
+
+        .span2 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: smaller;
+            margin-left: 7px;
+            cursor: pointer;
+
+            &:hover {
+                color: rgb(0, 0, 0);
+            }
+        }
+    }
+
+    .cajon {
+        height: auto;
+        width: 100%;
+
+        #labelCajon {
+            color: black;
+        }
+    }
+}
+
+.camara {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 45px;
+
+    &:hover {
+        background-color: rgba(121, 121, 121, 0.516);
+    }
+}
+
+.preview {
+    max-width: 370px;
+    width: 370px;
+    height: 200px;
+}
+
+.iconCamera {
+    width: 15px;
+    height: 17px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.divCam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn-camara {
+        cursor: pointer;
+        border: none;
+        background: none;
+    }
+}
+
+.upload {
+    width: 50%;
+}
+
+#vista-previa {
+    align-items: center;
+    text-align: center;
+
+    #imagenActual {
+        max-width: 200px;
+        max-height: 300px;
+    }
+
+}
+
+#imagenActual {
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(20, 54, 56);
+    }
+}
+
+/* En pantallas pequeñas: mostrar ícono, ocultar texto */
+@media (max-width: 600px) {
+  .text {
+    font-size: 0.75rem; /* tamaño reducido en móviles */
+  }
+}
+
